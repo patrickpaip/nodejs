@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "245d4ee0-d222-481e-930c-07c22a924833",
+		"name": "LTTS_ANGULAR_STUB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Refresh Token URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d89edb1c-f05e-4684-9d7f-b47ab8a09a5d",
+						"exec": [
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"refresh_token\", jsonData.data.refresh);",
+							"pm.environment.set(\"access_token\",jsonData.data.token);",
+							"pm.environment.set(\"mobile_number\", jsonData.data.user.mobile);",
+							"pm.environment.set(\"fullname\", jsonData.data.user.fullname);",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "mobile",
+							"value": "{{mobile_number}}",
+							"type": "text"
+						},
+						{
+							"key": "refreshtoken",
+							"value": "{{refresh_token}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip_address}}/api/auth/token",
+					"host": [
+						"{{ip_address}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f855ccce-d2ce-4f77-aef6-f0aa0c52aa47",
+						"exec": [
+							"",
+							"    var jsonData = pm.response.json();",
+							"    pm.environment.set(\"refresh_token\", jsonData.data.refresh);",
+							"     pm.environment.set(\"access_token\",jsonData.data.token);",
+							"      pm.environment.set(\"mobile_number\", jsonData.data.user.mobile);",
+							"       pm.environment.set(\"fullname\", jsonData.data.user.fullname);",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{ip_address}}/api/auth/login",
+					"host": [
+						"{{ip_address}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}

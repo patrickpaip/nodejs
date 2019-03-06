@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "ee859b22-8ca1-466e-8b4f-33b3dbdbda9c",
+		"name": "NODEJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Root",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "df4a93a8-3deb-4691-93e9-936fafa9431b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{ipAddress}}:{{portNumber}}",
+					"host": [
+						"{{ipAddress}}"
+					],
+					"port": "{{portNumber}}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SEND GET PARAMS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check on Google",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SEND POST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Request Version 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "472344f3-9c38-40a4-8954-37859a4a11c2",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"pm.test(\"Err respnse\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.err).to.eql(true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Hanuman",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "secretsecret1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ipAddress}}:{{portNumber}}/auth/login",
+					"host": [
+						"{{ipAddress}}"
+					],
+					"port": "{{portNumber}}",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registration Version 1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "fullname",
+							"value": "Bruce Wayne",
+							"type": "text"
+						},
+						{
+							"key": "mobileno",
+							"value": "9845098450",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ipAddress}}:{{portNumber}}/auth/register",
+					"host": [
+						"{{ipAddress}}"
+					],
+					"port": "{{portNumber}}",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "batman",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ipAddress}}:{{portNumber}}/auth/userdetails",
+					"host": [
+						"{{ipAddress}}"
+					],
+					"port": "{{portNumber}}",
+					"path": [
+						"auth",
+						"userdetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
